@@ -4,8 +4,8 @@ from django.urls import reverse
 
 class Autists(models.Model):
     name = models.CharField(max_length=255,default='unamed')
-    badOpinion = models.TextField()
-    goodOpinion = models.TextField( )
+    badOpinion = models.TextField(max_length=255)
+    goodOpinion = models.TextField(max_length=255)
 
     
     def __str__(self):
