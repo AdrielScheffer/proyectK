@@ -19,8 +19,8 @@ class OpinionForm(ModelForm):
 
         widgets = {
             'name': forms.Select (choices= name_list, attrs= {'class': 'name'}),
-            'goodOpinion': forms.Textarea( attrs= {'class': 'good-text' , 'placeholder': 'Deci algo bueno del pibe'}),
-            'badOpinion': forms.Textarea( attrs= {'class': 'bad-text' , 'placeholder': 'Aca lo podes bardear'})
+            'goodOpinion': forms.Textarea( attrs= {'class': 'good-text' , 'placeholder': 'Opinion positiva'}),
+            'badOpinion': forms.Textarea( attrs= {'class': 'bad-text' , 'placeholder': 'algo que tiene que mejorar o cambiar/ bardeo'})
             
         }         
 
