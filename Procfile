@@ -1,1 +1,1 @@
-web: gunicorn proyectK.wsgi --log-file-
+web: gunicorn proyectK.wsgi --log-file -
