@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'results.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Chivo+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <video id="background-video" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
+        <source src="{% static 'putin_Trim.mp4' %}" type="video/mp4">
+    </video>
+    <form method="GET" class="form-filter">
+        <h2>Buscar por nombre: </h2>
+        {{form.as_p}}
+        
+        <button type="submit" class="button-filter">submit</button>
+
+    </form>
+    <div class="main-div-flex">
+        
+        <div class="main-div">
+
+            <button class="menu"> <img class="img" src="{% static 'home.png' %}"><a href="{% url 'home' %}">.   menu</a></button>
+            
+            {% for item in object_list %}
+            
+                
+                    <div data-tilt class="item-div">
+
+                        <p>Esto va dedicado a: <b> {{item.name}} </b></p>
+                        <p><b>lo bueno : </b> {{item.badOpinion}}</p>
+                        <p><b>lo malo: </b> {{item.goodOpinion}}</p>
+                        
+                    </div>
+                
+            
+            {% endfor %}
+        </div>
+    </div>
+
+    
+    <script type="text/javascript" src="../static/vanilla-tilt.js"></script>
+    <script type="text/javascript">
+        VanillaTilt.init(document.querySelector(".item-div"), {
+            max: 25,
+            speed: 400
+        });
+        
+    </script>
+
+<script>
+    function changeBg(){
+
+        const videos = [
+            
+            '{% static "putin_Trim.mp4" %}',
+            '{% static "sus-czin_.mp4" %}',
+            '{% static "rat.mp4" %}',
+            '{% static "capy_.mp4" %}',
+            '{% static "messi_.mp4" %}',
+            '{% static "bing_.mp4" %}',
+            '{% static "boca_.mp4" %}',
+        ]
+
+        const section = document.querySelector('#background-video')
+        const bg = videos[Math.floor(Math.random() * 
+        videos.length)];
+        
+        section.setAttribute("src", bg);
+        
+        
+    }
+    setInterval(changeBg,10000)
+
+
+
+</script>
+    
+</body>
+</html>

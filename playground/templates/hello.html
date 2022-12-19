@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'hello.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Chivo+Mono&display=swap" rel="stylesheet">
+</head>
+<body class="main">
+    <video id="background-video" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
+        <source src="{% static 'putin_Trim.mp4' %}" type="video/mp4">
+        </video>
+    <div class="main__div">
+        <div class="box">
+            
+            <h1 class="title">D2C3-CVE MEMBERS OPINION</h1>
+            
+              
+              <button type="submit" class="button"><a href="{% url 'opinion' %}" class="A">OPINAR </a> </button>
+            
+              
+
+
+            
+        </div>
+    </div>
+    <script>
+        function changeBg(){
+
+            const videos = [
+                
+                '{% static "putin_Trim.mp4" %}',
+                '{% static "sus-czin_.mp4" %}',
+                '{% static "rat.mp4" %}',
+                '{% static "capy_.mp4" %}',
+                '{% static "messi_.mp4" %}',
+                '{% static "bing_.mp4" %}',
+                '{% static "boca_.mp4" %}',
+            ]
+
+            const section = document.querySelector('#background-video')
+            const bg = videos[Math.floor(Math.random() * 
+            videos.length)];
+            
+            section.setAttribute("src", bg);
+            
+            
+        }
+        setInterval(changeBg,10000)
+
+
+
+    </script>
+    <button class="lista" ><img class="img" src="{% static 'notepad.png' %}"><a href="{% url 'finalResult' %}"> Lista de opiniones</a></button>
+</body>
+</html>
